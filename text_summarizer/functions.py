@@ -1,4 +1,4 @@
-import openai
+from openai import OpenAI
 import streamlit as st
 
 def create_prompt(text):
@@ -8,7 +8,8 @@ def create_prompt(text):
 
 def summarize(prompt):
     try:
-        response = openai.Completion.create(engine="gpt-3.5-turbo-instruct",
+        client = OpenAI()
+        response = client.completions.create(model="gpt-3.5-turbo-instruct",
                                                 prompt=create_prompt(prompt),
                                                 max_tokens=512,  # we increased the tokens to get a longer blog post
                                                 temperature=0.7)
