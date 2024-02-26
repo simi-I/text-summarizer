@@ -6,8 +6,6 @@ from text_summarizer.functions import summarize
 try:
     st.title("Text Summarizer")
 
-    openai.api_key = os.getenv('OPENAI_KEY')
-
     # initialize state varibale
     if "summary" not in st.session_state:
         st.session_state["summary"] = ""
